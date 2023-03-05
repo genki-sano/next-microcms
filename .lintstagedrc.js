@@ -19,6 +19,6 @@ const buildEslintCommand = async (files) => {
 
 module.exports = {
   '**/*.{js,jsx,ts,tsx}': async (files) => await buildEslintCommand(files),
-  '**/*.{css,scss}': ['yarn lint:style:fix'],
+  '**/*.{css,scss}': ['yarn lint:style --fix'],
   '**/*.{js,jsx,ts,tsx,css,scss}': ['yarn format'],
 }

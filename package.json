@@ -15,9 +15,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint --dir src",
-    "lint:fix": "yarn lint --fix",
     "lint:style": "stylelint **/*.{css,scss}",
-    "lint:style:fix": "yarn lint:style --fix",
     "format": "prettier --write"
   },
   "dependencies": {
