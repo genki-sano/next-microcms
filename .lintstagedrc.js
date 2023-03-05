@@ -11,11 +11,14 @@ const buildEslintCommand = async (files) => {
   const filteredFiles = files
     .filter((_, i) => !isIgnored[i])
     .map((f) => path.relative(process.cwd(), f))
+
+  if (filteredFiles.length === 0) return 'yarn lint'
+
   return `next lint --fix --file ${filteredFiles.join(' --file ')}`
 }
 
 module.exports = {
   '**/*.{js,jsx,ts,tsx}': async (files) => await buildEslintCommand(files),
   '**/*.{css,scss}': ['yarn lint:style:fix'],
-  '**/*.{ts,tsx,css,scss}': ['yarn format'],
+  '**/*.{js,jsx,ts,tsx,css,scss}': ['yarn format'],
 }
